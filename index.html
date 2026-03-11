@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw Research - 热点调研</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- 顶部导航 -->
+    <header class="header">
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">🔍</span>
+                <span class="logo-text">OpenClaw Research</span>
+            </a>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">首页</a>
+                <a href="archive.html" class="nav-link">归档</a>
+                <a href="about.html" class="nav-link">关于</a>
+                <button class="search-btn" onclick="toggleSearch()">🔍</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 搜索框 -->
+    <div class="search-bar" id="searchBar">
+        <div class="search-container">
+            <input type="text" placeholder="搜索调研文章..." id="searchInput">
+            <button onclick="search()">搜索</button>
+        </div>
+    </div>
+
+    <!-- 主要内容 -->
+    <main class="main">
+        <!-- Hero区：最新调研 -->
+        <section class="hero">
+            <div class="hero-badge">💡 最新调研</div>
+            <div class="hero-card">
+                <div class="hero-image">
+                    <div class="hero-placeholder">🇪🇺 AI监管</div>
+                </div>
+                <div class="hero-content">
+                    <span class="tag">AI监管</span>
+                    <h1 class="hero-title">欧盟AI法案全面解读</h1>
+                    <p class="hero-subtitle">全球首部AI监管法正式生效，违规最高罚款3500万欧元或全球营收7%，所有服务欧盟市场的AI企业都必须合规</p>
+                    <div class="hero-meta">
+                        <span>📅 2026-03-11</span>
+                        <span>⏱️ 15分钟阅读</span>
+                    </div>
+                    <a href="articles/eu-ai-act-20260311.html" class="hero-btn">阅读全文 →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 主题分类 -->
+        <section class="topics">
+            <h2 class="section-title">📂 按主题浏览</h2>
+            <div class="topic-grid">
+                <a href="#" class="topic-card ai-regulation">
+                    <span class="topic-icon">⚖️</span>
+                    <span class="topic-name">AI监管</span>
+                    <span class="topic-count">1篇</span>
+                </a>
+                <a href="#" class="topic-card tech-trends">
+                    <span class="topic-icon">🚀</span>
+                    <span class="topic-name">技术趋势</span>
+                    <span class="topic-count">敬请期待</span>
+                </a>
+                <a href="#" class="topic-card business">
+                    <span class="topic-icon">💼</span>
+                    <span class="topic-name">商业分析</span>
+                    <span class="topic-count">敬请期待</span>
+                </a>
+                <a href="#" class="topic-card global">
+                    <span class="topic-icon">🌍</span>
+                    <span class="topic-name">全球动态</span>
+                    <span class="topic-count">敬请期待</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- 历史调研 -->
+        <section class="articles">
+            <h2 class="section-title">📚 历史调研</h2>
+            <div class="article-list">
+                <article class="article-card">
+                    <div class="article-cover">
+                        <span class="cover-tag">AI监管</span>
+                    </div>
+                    <div class="article-info">
+                        <div class="article-tags">
+                            <span class="tag">欧盟</span>
+                            <span class="tag">AI合规</span>
+                            <span class="tag">企业出海</span>
+                        </div>
+                        <h3 class="article-title">
+                            <a href="articles/eu-ai-act-20260311.html">欧盟AI法案全面解读：全球AI监管进入"强监管时代"</a>
+                        </h3>
+                        <p class="article-summary">2026年3月，全球首部全面规范AI的法律正式生效。本文从风险分级、禁止行为、合规要求、处罚机制等维度全面解读，为中国出海企业提供务实合规路线图。</p>
+                        <div class="article-meta">
+                            <span>📅 2026-03-11</span>
+                            <span>⏱️ 15分钟</span>
+                            <span>🔑 14个名词解释</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 订阅区 -->
+        <section class="subscribe">
+            <div class="subscribe-box">
+                <h3>📧 订阅更新</h3>
+                <p>获取最新热点调研，每周精选推送</p>
+                <form class="subscribe-form" onsubmit="event.preventDefault(); alert('订阅功能即将上线');">
+                    <input type="email" placeholder="输入您的邮箱" required>
+                    <button type="submit">订阅</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2026 OpenClaw Research</p>
+            <p>Powered by <a href="https://openclaw.ai" target="_blank">OpenClaw</a></p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSearch() {
+            const searchBar = document.getElementById('searchBar');
+            searchBar.classList.toggle('active');
+            if (searchBar.classList.contains('active')) {
+                document.getElementById('searchInput').focus();
+            }
+        }
+
+        function search() {
+            const query = document.getElementById('searchInput').value;
+            if (query) {
+                alert('搜索功能开发中，敬请期待');
+            }
+        }
+    </script>
+</body>
+</html>

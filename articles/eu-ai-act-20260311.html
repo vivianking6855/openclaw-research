@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欧盟AI法案全面解读 | OpenClaw Research</title>
+    <link rel="stylesheet" href="../assets/css/article.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="article-page">
+    <!-- 左侧导航栏 -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="back-link">← 返回首页</a>
+            <div class="sidebar-logo">OpenClaw Research</div>
+        </div>
+
+        <nav class="toc">
+            <div class="toc-title">📋 目录导航</div>
+            <ul class="toc-list">
+                <li><a href="#executive-summary" class="toc-h2">执行摘要</a></li>
+                <li><a href="#background" class="toc-h2">一、法案背景</a></li>
+                <li><a href="#risk-framework" class="toc-h2">二、四层风险架构</a></li>
+                <li><a href="#prohibited" class="toc-h2">三、八大禁止行为</a></li>
+                <li><a href="#high-risk" class="toc-h2">四、高风险AI合规要求</a></li>
+                <li><a href="#gpai" class="toc-h2">五、通用AI模型规定</a></li>
+                <li><a href="#timeline" class="toc-h2">六、实施时间线</a></li>
+                <li><a href="#penalties" class="toc-h2">七、三级罚款体系</a></li>
+                <li><a href="#china-impact" class="toc-h2">八、对中国企业影响</a></li>
+                <li><a href="#roadmap" class="toc-h2">九、务实合规路线图</a></li>
+                <li><a href="#insights" class="toc-h2">十、核心洞察</a></li>
+                <li><a href="#glossary" class="toc-h2">📖 名词解释</a></li>
+                <li><a href="#references" class="toc-h2">📚 参考资料</a></li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">快捷导航</div>
+            <a href="#key-findings" class="sidebar-link">🔑 关键发现</a>
+            <a href="#glossary" class="sidebar-link">📖 名词解释</a>
+            <a href="../index.html" class="sidebar-link">🏠 返回首页</a>
+        </div>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="article-main">
+        <article class="article-container">
+            <!-- 文章头部 -->
+            <header class="article-header">
+                <span class="category-tag">AI监管</span>
+                <h1>欧盟AI法案全面解读</h1>
+                <p class="article-subtitle">全球首部AI监管法正式生效，违规最高罚款3500万欧元或全球营收7%，所有服务欧盟市场的AI企业都必须合规</p>
+                
+                <div class="article-meta-bar">
+                    <span>📅 发布: 2026-03-11</span>
+                    <span>🔄 更新: 2026-03-11</span>
+                    <span>⏱️ 阅读: 15分钟</span>
+                    <span>🔑 14个名词解释</span>
+                    
+                    <div class="article-actions">
+                        <button class="action-btn" onclick="window.print()">🖨️ 打印</button>
+                        <button class="action-btn" onclick="shareArticle()">🔗 分享</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 执行摘要 -->
+            <div id="executive-summary" class="executive-summary">
+                <h3>📋 Executive Summary 执行摘要</h3>
+                <ul>
+                    <li><strong>全球首部AI监管法：</strong>欧盟AI Act于2024年8月生效，2026年8月全面执行，是全球第一部综合性AI监管法律</li>
+                    <li><strong>四级风险体系：</strong>禁止、高风险、有限风险、最小风险，对应不同合规要求</li>
+                    <li><strong>最高罚款3500万欧：</strong>违反禁止性AI行为最高罚款3500万欧元或全球营收7%</li>
+                    <li><strong>域外效力：</strong>只要AI输出在欧盟使用，无论企业注册地，都必须合规</li>
+                    <li><strong>合规成本15-30%：</strong>中国出海企业预计需投入项目预算的15-30%用于合规改造</li>
+                </ul>
+            </div>
+
+            <!-- 正文内容 -->
+            <div class="article-content">
+                <h2 id="background">一、法案背景：为什么是欧盟先出手？</h2>
+                
+                <p>欧盟《人工智能法案》（EU AI Act）于2024年8月1日正式生效，经过分阶段实施后，<strong>2026年8月将全面执行</strong>。这是全球第一部综合性AI监管法律，标志着AI从"野蛮生长"进入"持证上岗"时代。</p>
+
+                <h3>核心立法目标</h3>
+                <ul>
+                    <li>保护人的基本权利（隐私、非歧视、人身安全）</li>
+                    <li>确保AI系统的安全性、透明性和可追溯性</li>
+                    <li>建立"以人为本、可信赖"的AI生态</li>
+                </ul>
+
+                <h3>适用范围（域外效力）</h3>
+                <p>无论你的公司是否在欧盟注册，只要AI系统的"输出"在欧盟被使用，就必须遵守该法案。这意味着<strong>所有出海欧洲的中国企业都在监管范围内</strong>。</p>
+
+                <hr class="divider">
+
+                <h2 id="risk-framework">二、四层风险架构：你的AI属于哪一级？</h2>
+
+                <p>欧盟AI Act采用<strong>风险分级</strong>思路，将AI系统分为四个等级：</p>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>风险等级</th>
+                            <th>定义</th>
+                            <th>代表场景</th>
+                            <th>合规要求</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>🚫 不可接受风险</td>
+                            <td>危害基本人权</td>
+                            <td>社会信用评分、情感操控AI</td>
+                            <td><strong>完全禁止</strong></td>
+                        </tr>
+                        <tr>
+                            <td>⚠️ 高风险</td>
+                            <td>影响安全/权利</td>
+                            <td>招聘、信贷、医疗、教育、司法</td>
+                            <td><strong>强制合规认证</strong></td>
+                        </tr>
+                        <tr>
+                            <td>ℹ️ 有限风险</td>
+                            <td>需告知用户</td>
+                            <td>Chatbot、深度伪造</td>
+                            <td><strong>透明度义务</strong></td>
+                        </tr>
+                        <tr>
+                            <td>✅ 最小风险</td>
+                            <td>低风险应用</td>
+                            <td>垃圾邮件过滤、游戏AI</td>
+                            <td><strong>基本无限制</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>高风险AI系统清单（部分）</h3>
+                <ul>
+                    <li>关键基础设施管理（水电、交通）</li>
+                    <li>教育与职业培训录取评估</li>
+                    <li>招聘与职场管理（简历筛选、绩效评估）</li>
+                    <li>信贷评分与保险定价</li>
+                    <li>医疗诊断与辅助治疗</li>
+                    <li>司法与执法（犯罪风险评估、证据分析）</li>
+                </ul>
+
+                <hr class="divider">
+
+                <h2 id="prohibited">三、八大禁止行为：这些AI在欧盟完全违法</h2>
+
+                <p>2025年2月2日起，以下AI实践已被<strong>明令禁止</strong>：</p>
+
+                <ol>
+                    <li><strong>社会信用评分系统</strong> — 政府或企业基于社会行为给人打分并区别对待</li>
+                    <li><strong>潜意识操控AI</strong> — 利用潜意识技术操纵人的行为决策</li>
+                    <li><strong>利用弱势群体</strong> — 针对儿童、老年人、残障人士的操控性AI</li>
+                    <li><strong>实时远程生物识别</strong> — 公共场所的实时人脸识别（执法特殊场景除外）</li>
+                    <li><strong>情感识别（工作/教育场景）</strong> — 在工作场所或学校识别情绪</li>
+                    <li><strong>无目标大规模监控</strong> — 无特定嫌疑的大规模数据抓取</li>
+                    <li><strong>预测性警务（仅基于特征）</strong> — 仅根据外貌、地理位置预测犯罪</li>
+                    <li><strong>创建/扩展面部识别数据库</strong> — 未经授权大规模收集人脸数据</li>
+                </ol>
+
+                <div class="key-findings" id="key-findings">
+                    <h3>💡 关键发现 Key Findings</h3>
+                    <ul>
+                        <li>违规定价：最高3500万欧元或全球年营收7%（取较高者）</li>
+                        <li>比GDPR更严厉（GDPR最高为2000万欧元或4%营收）</li>
+                        <li>2025年2月2日起已可执行处罚</li>
+                    </ul>
+                </div>
+
+                <hr class="divider">
+
+                <h2 id="high-risk">四、高风险AI系统：你必须做的12件事</h2>
+
+                <p>如果你的AI属于高风险类别，必须履行以下合规义务：</p>
+
+                <h3>1. 上市前合规</h3>
+                <ul>
+                    <li>✅ 完成<strong>合规性评估</strong>（Conformity Assessment）</li>
+                    <li>✅ 建立<strong>风险管理系统</strong></li>
+                    <li>✅ 确保<strong>数据治理</strong>（训练数据质量、偏差检测）</li>
+                    <li>✅ 编写<strong>技术文档</strong></li>
+                </ul>
+
+                <h3>2. 透明与监督</h3>
+                <ul>
+                    <li>✅ 向用户明确告知"这是AI系统"</li>
+                    <li>✅ 确保<strong>人工监督</strong>机制</li>
+                    <li>✅ 建立<strong>准确性和鲁棒性</strong>标准</li>
+                </ul>
+
+                <h3>3. 上市后</h3>
+                <ul>
+                    <li>✅ 建立<strong>事故报告机制</strong>（重大事件48小时内上报）</li>
+                    <li>✅ 实施<strong>市场后监测</strong></li>
+                    <li>✅ 保留<strong>日志记录</strong>（至少6年）</li>
+                </ul>
+
+                <h3>4. 组织要求</h3>
+                <ul>
+                    <li>✅ 指定<strong>欧盟授权代表</strong></li>
+                    <li>✅ 建立<strong>质量管理体系</strong></li>
+                    <li>✅ 确保<strong>AI素养培训</strong>（所有相关人员）</li>
+                </ul>
+
+                <hr class="divider">
+
+                <h2 id="gpai">五、通用AI模型（GPAI）：大模型厂商的特殊义务</h2>
+
+                <p>针对ChatGPT、Gemini这类通用大模型，法案也有专门规定：</p>
+
+                <h3>所有GPAI模型必须：</h3>
+                <ul>
+                    <li>发布<strong>技术文档</strong>和<strong>透明度报告</strong></li>
+                    <li>公布<strong>训练数据摘要</strong>（遵守版权法）</li>
+                    <li>提供<strong>模型能力、局限性、风险说明</strong></li>
+                </ul>
+
+                <h3>具有"系统性风险"的GPAI（计算量>10²⁵ FLOPs）：</h3>
+                <ul>
+                    <li>开展<strong>模型评估</strong>和红队测试</li>
+                    <li>评估并<strong>缓解系统性风险</strong></li>
+                    <li>确保<strong>网络安全防护</strong></li>
+                    <li>向监管机构<strong>报告重大事件</strong></li>
+                </ul>
+
+                <p><strong>代表模型：</strong> GPT-4、Gemini Ultra、Claude 3等顶级大模型</p>
+
+                <hr class="divider">
+
+                <h2 id="timeline">六、关键时间节点：你的合规倒计时</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>时间</th>
+                            <th>生效内容</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>2024年8月1日</strong></td>
+                            <td>法案正式生效</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2025年2月2日</strong></td>
+                            <td>禁止性AI实践生效 + AI素养要求</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2025年8月2日</strong></td>
+                            <td>GPAI模型义务生效 + 处罚机制启动</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026年2月2日</strong></td>
+                            <td>高风险AI系统指南发布</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2026年8月2日</strong></td>
+                            <td><strong>高风险AI系统全面生效（关键节点）</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>2027年8月2日</strong></td>
+                            <td>嵌入产品的AI系统合规 deadline</td>
+                        </tr>
+                        <tr>
+                            <td><strong>2030年12月31日</strong></td>
+                            <td>大型IT系统存量AI完成合规</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <hr class="divider">
+
+                <h2 id="penalties">七、三级罚款体系：违规成本有多高？</h2>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>违规类型</th>
+                            <th>最高罚款</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>使用禁止性AI</strong></td>
+                            <td><strong style="color: #dc2626;">3500万欧元 或 全球营收7%</strong></td>
+                        </tr>
+                        <tr>
+                            <td><strong>违反高风险AI要求</strong></td>
+                            <td>1500万欧元 或 全球营收3%</td>
+                        </tr>
+                        <tr>
+                            <td><strong>提供虚假信息</strong></td>
+                            <td>750万欧元 或 全球营收1%</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p><strong>对比：</strong>比GDPR更严厉（GDPR最高为2000万欧元或4%营收）。中小企业可获得罚款减免，但基础合规义务不变。</p>
+
+                <hr class="divider">
+
+                <h2 id="china-impact">八、对中国出海企业的直接影响</h2>
+
+                <h3>1. 合规成本激增</h3>
+                <ul>
+                    <li>技术改造 + 第三方审计，预计占项目预算<strong>15%-30%</strong></li>
+                    <li>需在欧盟设立本地数据存储中心</li>
+                    <li>聘请专业合规团队</li>
+                </ul>
+
+                <h3>2. 技术路线调整压力</h3>
+                <p><strong>汽车行业案例：</strong></p>
+                <ul>
+                    <li>智能座舱需增加用户控制接口</li>
+                    <li>自动驾驶算法需按欧盟数据标准重新训练</li>
+                    <li>某企业因"人工接管响应速度测试"未通过，被罚320万欧元</li>
+                </ul>
+
+                <p><strong>生物医药行业：</strong></p>
+                <ul>
+                    <li>AI辅助诊断工具需提供多语言技术文档</li>
+                    <li>必须嵌入人工复核流程</li>
+                </ul>
+
+                <h3>3. 市场准入门槛提升</h3>
+                <ul>
+                    <li>必须在欧盟指定<strong>授权代表</strong></li>
+                    <li>禁止跨境传输敏感数据</li>
+                    <li>需要CE标识才能上市</li>
+                </ul>
+
+                <h3>4. 中小企业生存挑战</h3>
+                <p>部分初创公司可能因无法承担合规成本而被迫<strong>退出欧盟市场</strong>。</p>
+
+                <hr class="divider">
+
+                <h2 id="roadmap">九、务实合规路线图：企业应该怎么做？</h2>
+
+                <h3>第一阶段：立即行动（现在-2026年2月）</h3>
+                <ol>
+                    <li><strong>盘点现有AI系统</strong> — 识别哪些属于高风险/禁止类别</li>
+                    <li><strong>差距分析</strong> — 对照法案要求评估合规差距</li>
+                    <li><strong>建立AI登记册</strong> — 记录所有AI系统的用途、数据流、风险等级</li>
+                </ol>
+
+                <h3>第二阶段：体系建设（2026年2-8月）</h3>
+                <ol>
+                    <li>建立<strong>AI治理委员会</strong></li>
+                    <li>制定<strong>内部AI使用政策</strong></li>
+                    <li>实施<strong>全员AI素养培训</strong></li>
+                    <li>完善<strong>技术文档</strong>和<strong>风险管理流程</strong></li>
+                </ol>
+
+                <h3>第三阶段：全面合规（2026年8月起）</h3>
+                <ol>
+                    <li>完成<strong>合规性评估</strong></li>
+                    <li>指定<strong>欧盟授权代表</strong></li>
+                    <li>建立<strong>市场后监测机制</strong></li>
+                    <li>定期<strong>审计与更新</strong></li>
+                </ol>
+
+                <hr class="divider">
+
+                <h2 id="insights">十、核心洞察：法案背后的深层逻辑</h2>
+
+                <h3>1. 价值观输出</h3>
+                <p>欧盟延续GDPR路径，通过监管规则输出"人权优先"的数字治理理念，形成"<strong>布鲁塞尔效应</strong>"。</p>
+
+                <h3>2. 竞争格局重塑</h3>
+                <ul>
+                    <li><strong>美国：</strong>技术领先 + 宽松监管</li>
+                    <li><strong>中国：</strong>应用活跃 + 场景化治理</li>
+                    <li><strong>欧盟：</strong>监管壁垒 + 标准制定权</li>
+                </ul>
+
+                <h3>3. 全球监管趋势</h3>
+                <ul>
+                    <li>新加坡、日本、韩国已在跟进类似框架</li>
+                    <li>预计2026-2027年全球将迎来AI监管立法潮</li>
+                </ul>
+
+                <h2>结语：合规不是成本，是竞争力</h2>
+
+                <p>欧盟AI Act不是简单的"限制令"，而是<strong>AI产业的准入资格证</strong>。</p>
+
+                <p><strong>对企业而言：</strong></p>
+                <ul>
+                    <li><strong>短期：</strong>合规成本确实存在，但这是进入欧洲市场的门票</li>
+                    <li><strong>中期：</strong>合规能力将成为竞争壁垒，淘汰劣质玩家</li>
+                    <li><strong>长期：</strong>符合高标准的AI产品将获得更高的用户信任和市场认可</li>
+                </ul>
+
+                <p><strong>建议行动：</strong>如果你是出海企业，现在就应该启动合规评估，不要等到2026年8月截止日。合规准备周期通常需要6-12个月，越早行动，成本越低。</p>
+            </div>
+
+            <!-- 名词解释 -->
+            <section class="glossary-section" id="glossary">
+                <h2>📖 名词解释</h2>
+                <div class="glossary-grid">
+                    <div class="glossary-card" onclick="this.classList.toggle('expanded')">
+                        <h4>布鲁塞尔效应</h4>
+                        <p class="glossary-brief">欧盟通过严格内部规则，迫使全球企业按欧盟标准改造产品...</p>
+                        <div class="glossary-detail">
+                            <p><strong>通俗说：</strong>欧盟通过制定严格的内部规则，迫使全球企业为了进入欧盟市场而统一按欧盟标准改造产品，从而<strong>单方面影响全球商业规则</strong>的现象。</p>
+                            <p><strong>类比：</strong>就像班上最严格的老师定了作业标准，为了不被扣分，全班同学都按这个标准写作业，最后这个标准就成了全班的默认规则。</p>
+                            <p><strong>案例：</strong>GDPR实施后，全球互联网公司都调整了隐私政策。</p>
+                        </div>
+                        <span class="expand-btn">点击展开 ↓</span>
+                    </div>
+
+                    <div class="glossary-card" onclick="this.classList.toggle('expanded')">
+                        <h4>域外效力</h4>
+                        <p class="glossary-brief">法律"长臂管辖"，不管公司注册地，只要产品在欧盟被使用就必须遵守...</p>
+                        <div class="glossary-detail">
+                            <p><strong>通俗说：</strong>法律"长臂管辖"，不管你的公司注册在哪里，只要你的产品/服务在欧盟被使用，就必须遵守欧盟法律。</p>
+                            <p><strong>举例：</strong>一家中国AI公司在深圳，但它的招聘AI系统被法国企业使用，那么这家中国公司也必须遵守欧盟AI Act。</p>
+                        </div>
+                        <span class="expand-btn">点击展开 ↓</span>
+                    </div>
+
+                    <div class="glossary-card" onclick="this.classList.toggle('expanded')">
+                        <h4>合规性评估</h4>
+                        <p class="glossary-brief">上市前的"体检报告"，证明AI系统符合安全标准...</p>
+                        <div class="glossary-detail">
+                            <p><strong>通俗说：</strong>上市前的"体检报告"，证明你的AI系统符合安全标准。</p>
+                            <p><strong>两种方式：</strong></p>
+                            <ul>
+                                <li><strong>自我评估：</strong>企业自己检查并声明合规</li>
+                                <li><strong>第三方认证：</strong>请欧盟认可的机构出具合规证书</li>
+                            </ul>
+                        </div>
+                        <span class="expand-btn">点击展开 ↓</span>
+                    </div>
+
+                    <div class="glossary-card" onclick="this.classList.toggle('expanded')">
+                        <h4>通用AI模型（GPAI）</h4>
+                        <p class="glossary-brief">"万金油"AI，不是为单一任务设计的，可以应对各种场景...</p>
+                        <div class="glossary-detail">
+                            <p><strong>通俗说：</strong>"万金油"AI，不是为单一任务设计的，可以应对各种场景。</p>
+                            <p><strong>代表：</strong>GPT-4、Gemini、Claude、文心一言、通义千问等基础大模型</p>
+                            <p><strong>注意：</strong>即使你的应用只用到这些模型的API，如果上游模型不合规，你的应用也可能受影响。</p>
+                        </div>
+                        <span class="expand-btn">点击展开 ↓</span>
+                    </div>
+
+                    <div class="glossary-card" onclick="this.classList.toggle('expanded')">
+                        <h4>CE标识</h4>
+                        <p class="glossary-brief">产品的"欧盟护照"，贴了这个标志才能在欧盟市场销售...</p>
+                        <div class="glossary-detail">
+                            <p><strong>通俗说：</strong>产品的"欧盟护照"，贴了这个标志才能在欧盟市场销售。</p>
+                            <p><strong>AI领域的CE标识要求：</strong></p>
+                            <ul>
+                                <li>高风险AI系统必须通过合规评估后才能加贴</li>
+                                <li>证明产品符合欧盟安全、健康、环保标准</li>
+                                <li>违规使用CE标识属于违法行为</li>
+                            </ul>
+                        </div>
+                        <span class="expand-btn">点击展开 ↓</span>
+                    </div>
+
+                    <div class="glossary-card" onclick="this.classList.toggle('expanded')">
+                        <h4>授权代表</h4>
+                        <p class="glossary-brief">非欧盟企业在欧盟的"法人代表"，替企业处理监管事务...</p>
+                        <div class="glossary-detail">
+                            <p><strong>通俗说：</strong>非欧盟企业在欧盟的"法人代表"，替企业处理监管事务。</p>
+                            <p><strong>职责：</strong></p>
+                            <ul>
+                                <li>保存技术文档备查</li>
+                                <li>与欧盟监管机构沟通</li>
+                                <li>协助市场监督和事故调查</li>
+                            </ul>
+                        </div>
+                        <span class="expand-btn">点击展开 ↓</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 参考资料 -->
+            <section class="references" id="references">
+                <h2>📚 参考资料</h2>
+                <ul>
+                    <li>欧盟AI Act官方文本（Regulation (EU) 2024/1689）</li>
+                    <li>欧盟委员会2025年2月禁止行为指南</li>
+                    <li>北京金杜律师事务所《欧盟AI法案对中国企业出海的影响》</li>
+                    <li>McKinsey Global Institute AI研究报告</li>
+                    <li>欧洲委员会AI Office官方解读</li>
+                </ul>
+            </section>
+
+            <!-- 相关推荐 -->
+            <section class="related-articles">
+                <h3>📎 相关推荐</h3>
+                <div class="related-grid">
+                    <a href="#" class="related-card">
+                        <span class="tag">技术趋势</span>
+                        <h4>人形机器人产业深度分析</h4>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="tag">全球动态</span>
+                        <h4>全球AI监管格局对比：美中欧三方博弈</h4>
+                    </a>
+                    <a href="#" class="related-card">
+                        <span class="tag">商业分析</span>
+                        <h4>AI Agent商业化路径研究报告</h4>
+                    </a>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- 返回顶部 -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // 目录高亮
+        function updateActiveToc() {
+            const headings = document.querySelectorAll('.article-content h2[id], .article-content h3[id]');
+            const tocLinks = document.querySelectorAll('.toc-list a');
+            
+            let current = '';
+            headings.forEach(heading => {
+                const rect = heading.getBoundingClientRect();
+                if (rect.top <= 120) {
+                    current = heading.getAttribute('id');
+                }
+            });
+            
+            tocLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', updateActiveToc);
+        
+        // 返回顶部
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                btn.classList.add('visible');
+            } else {
+                btn.classList.remove('visible');
+            }
+        });
+
+        // 分享功能
+        function shareArticle() {
+            if (navigator.share) {
+                navigator.share({
+                    title: '欧盟AI法案全面解读',
+                    url: window.location.href
+                });
+            } else {
+                alert('链接已复制到剪贴板');
+            }
+        }
+    </script>
+</body>
+</html>
