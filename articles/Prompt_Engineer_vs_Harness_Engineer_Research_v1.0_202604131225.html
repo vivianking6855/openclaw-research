@@ -136,13 +136,14 @@
             <div class="tag">AI工程</div>
             <div class="tag">职业发展</div>
             <div class="tag">Prompt Engineering</div>
+            <div class="tag">Context Engineering</div>
             <div class="tag">Harness Engineering</div>
-            <h1 style="font-size: 36px; margin-top: 20px;">Prompt Engineer vs Harness Engineer 调研报告</h1>
+            <h1 style="font-size: 36px; margin-top: 20px;">Prompt Engineer vs Context Engineer vs Harness Engineer 调研报告</h1>
             <div class="article-meta">
                 <span>📅 2026-04-13</span>
-                <span>⏱️ 12分钟阅读</span>
-                <span>🔑 8大章节</span>
-                <span>📋 版本 v1.0</span>
+                <span>⏱️ 15分钟阅读</span>
+                <span>🔑 9大章节</span>
+                <span>📋 版本 v1.1</span>
             </div>
         </div>
     </header>
@@ -150,7 +151,8 @@
     <article class="article-content">
         <div class="version-info">
             <strong>版本信息</strong><br>
-            版本号：v1.0 | 发布时间：2026-04-13 12:25 CST | 调研日期：2026-04-13
+            版本号：v1.1 | 发布时间：2026-04-13 14:45 CST | 调研日期：2026-04-13<br>
+            更新内容：补充 Context Engineer 详细对比分析，新增 Anthropic/Gartner 权威来源
         </div>
 
         <h2>执行摘要</h2>
@@ -202,27 +204,57 @@
         <h2>三、工作内容对比</h2>
 
         <table>
-            <tr><th>维度</th><th>Prompt Engineer</th><th>Harness Engineer</th></tr>
-            <tr><td><strong>核心任务</strong></td><td>编写优化提示词</td><td>构建 Agent 运营基础设施</td></tr>
-            <tr><td><strong>关注范围</strong></td><td>单次交互</td><td>多步骤工作流系统</td></tr>
-            <tr><td><strong>技术栈</strong></td><td>提示词模板、Few-shot</td><td>编排框架、验证系统、权限管理</td></tr>
-            <tr><td><strong>可靠性</strong></td><td>依赖模型输出质量</td><td>设计约束、重试、回滚机制</td></tr>
-            <tr><td><strong>可观测性</strong></td><td>较少涉及</td><td>全程日志、追踪、监控</td></tr>
-            <tr><td><strong>失败处理</strong></td><td>手动调整提示词</td><td>自动重试、降级、人工介入</td></tr>
+            <tr><th>维度</th><th>Prompt Engineer</th><th>Context Engineer</th><th>Harness Engineer</th></tr>
+            <tr><td><strong>核心任务</strong></td><td>编写优化提示词</td><td>设计和维护上下文信息系统</td><td>构建 Agent 运营基础设施</td></tr>
+            <tr><td><strong>关注范围</strong></td><td>单次交互</td><td>上下文窗口信息管理</td><td>多步骤工作流系统</td></tr>
+            <tr><td><strong>核心问题</strong></td><td>"What should be asked?"</td><td>"What context is needed?"</td><td>"How should the environment be designed?"</td></tr>
+            <tr><td><strong>技术栈</strong></td><td>提示词模板、Few-shot</td><td>RAG、向量数据库、MCP、记忆架构</td><td>编排框架、验证系统、权限管理</td></tr>
+            <tr><td><strong>关键技能</strong></td><td>提示词设计、示例工程</td><td>信息检索、上下文组装、工具集成</td><td>系统架构、约束设计、反馈循环</td></tr>
+            <tr><td><strong>可靠性</strong></td><td>依赖模型输出质量</td><td>依赖上下文准确性和完整性</td><td>设计约束、重试、回滚机制</td></tr>
+            <tr><td><strong>可观测性</strong></td><td>较少涉及</td><td>上下文追踪、来源验证</td><td>全程日志、追踪、监控</td></tr>
+            <tr><td><strong>失败处理</strong></td><td>手动调整提示词</td><td>动态上下文刷新、降级检索</td><td>自动重试、降级、人工介入</td></tr>
         </table>
+
+        <h3>Context Engineer 核心职责详解</h3>
+        <p>根据 <strong>Anthropic 2025年9月官方文档</strong>，Context Engineering 是"<em>strategies for curating and maintaining the optimal set of tokens during LLM inference</em>"（策划和维护 LLM 推理期间最优 token 集合的策略）。</p>
+
+        <p><strong>具体工作</strong>：</p>
+        <ul>
+            <li><strong>RAG 系统构建</strong>：设计检索增强生成架构，连接外部知识库</li>
+            <li><strong>上下文组装</strong>：整合系统指令、历史对话、外部数据、工具输出</li>
+            <li><strong>记忆架构设计</strong>：实现持久化记忆和短期会话管理</li>
+            <li><strong>MCP 集成</strong>：使用 Model Context Protocol 连接外部工具和数据源</li>
+            <li><strong>动态上下文交付</strong>：基于当前任务动态获取和注入上下文信息</li>
+        </ul>
+
+        <blockquote>
+            "Context engineering describes the core skill better: the art of providing all the context for the task to be plausibly solvable by the LLM."
+            <br>— Tobi Lütke, Shopify CEO, June 2025
+        </blockquote>
+
+        <blockquote>
+            "The hottest new programming language is English... in every serious LLM application, 'context engineering' (not prompt engineering) is the core skill."
+            <br>— Andrej Karpathy, AI Researcher, June 2025
+        </blockquote>
 
         <h2>四、汽车行业类比</h2>
 
         <table>
             <tr><th>角色</th><th>汽车类比</th><th>核心职责</th></tr>
             <tr><td>LLM 研究员</td><td>发动机研发工程师</td><td>研究、开发、优化基础模型</td></tr>
-            <tr><td><strong>Prompt Engineer</strong></td><td><strong>方向盘与油门刹车的校准工程师</strong></td><td>设计、优化、评估 Prompt</td></tr>
+            <tr><td><strong>Prompt Engineer</strong></td><td><strong>方向盘与油门刹车的校准工程师</strong></td><td>设计、优化、评估 Prompt，控制交互方式</td></tr>
+            <tr><td><strong>Context Engineer</strong></td><td><strong>车载信息导航系统工程师</strong></td><td>整合 GPS、路况、地图数据，为驾驶决策提供完整信息支持</td></tr>
             <tr><td>AI 算法工程师</td><td>自动驾驶算法研发工程师</td><td>研究推理链（ReAct、CoT、ToT）</td></tr>
             <tr><td>DevOps 工程师</td><td>运维工程师</td><td>部署、维护全生命周期管理平台</td></tr>
             <tr><td><strong>Harness Engineer</strong></td><td><strong>整车工程设施与流程架构师</strong></td><td>设计图纸审核、发动机选型调试、外部设备安装适配、碰撞测试、实时监控维护</td></tr>
         </table>
 
-        <p><strong>关键洞察</strong>：Harness Engineer 负责<strong>全套汽车工程设施与流程</strong>，而 Prompt Engineer 只负责<strong>控制逻辑的校准</strong>。</p>
+        <p><strong>关键洞察</strong>：</p>
+        <ul>
+            <li><strong>Prompt Engineer</strong> 负责<strong>控制逻辑的校准</strong>（怎么开）</li>
+            <li><strong>Context Engineer</strong> 负责<strong>信息环境的构建</strong>（往哪开、基于什么信息决策）</li>
+            <li><strong>Harness Engineer</strong> 负责<strong>全套汽车工程设施与流程</strong>（整体系统如何协同工作）</li>
+        </ul>
 
         <h2>五、Harness Engineer 的核心能力</h2>
 
@@ -286,16 +318,23 @@ touch .claude/settings.json</code></pre>
         <h2>八、总结</h2>
 
         <table>
-            <tr><th>维度</th><th>Prompt Engineer</th><th>Harness Engineer</th></tr>
-            <tr><td><strong>核心问题</strong></td><td>应该问什么？</td><td>整个环境如何设计？</td></tr>
-            <tr><td><strong>关注层级</strong></td><td>单次交互</td><td>系统级运营</td></tr>
-            <tr><td><strong>关键技能</strong></td><td>提示词编写、Few-shot</td><td>编排架构、约束设计、反馈循环</td></tr>
-            <tr><td><strong>可靠性</strong></td><td>依赖模型</td><td>系统设计保障</td></tr>
-            <tr><td><strong>思维模式</strong></td><td>对话伙伴</td><td>系统设计师</td></tr>
-            <tr><td><strong>价值产出</strong></td><td>更好的单次输出</td><td>可靠的自主工作系统</td></tr>
+            <tr><th>维度</th><th>Prompt Engineer</th><th>Context Engineer</th><th>Harness Engineer</th></tr>
+            <tr><td><strong>核心问题</strong></td><td>应该问什么？</td><td>需要提供什么上下文？</td><td>整个环境如何设计？</td></tr>
+            <tr><td><strong>关注层级</strong></td><td>单次交互</td><td>信息级上下文管理</td><td>系统级运营</td></tr>
+            <tr><td><strong>关键技能</strong></td><td>提示词编写、Few-shot</td><td>RAG、记忆架构、MCP、信息组装</td><td>编排架构、约束设计、反馈循环</td></tr>
+            <tr><td><strong>技术重点</strong></td><td>提示模板、示例工程</td><td>向量检索、工具集成、上下文压缩</td><td>多 Agent 编排、验证系统、权限管理</td></tr>
+            <tr><td><strong>可靠性</strong></td><td>依赖模型</td><td>依赖信息质量和检索准确性</td><td>系统设计保障</td></tr>
+            <tr><td><strong>思维模式</strong></td><td>对话伙伴</td><td>信息架构师</td><td>系统设计师</td></tr>
+            <tr><td><strong>价值产出</strong></td><td>更好的单次输出</td><td>更准确、更相关的 AI 响应</td><td>可靠的自主工作系统</td></tr>
+            <tr><td><strong>代表时期</strong></td><td>2022-2024</td><td>2024-2025</td><td>2025-现在</td></tr>
         </table>
 
         <p><strong>演进本质</strong>：我们与 AI 的关系正在从"对话伙伴"演进到"系统设计师"。这不仅是技术演进，更是<strong>思维框架的跃迁</strong>。</p>
+
+        <blockquote>
+            "Context engineering is the art and science of curating what will go into the limited context window from that constantly evolving universe of possible information."
+            <br>— Anthropic, September 2025
+        </blockquote>
 
         <h2>权威来源与引用</h2>
 
@@ -308,7 +347,49 @@ touch .claude/settings.json</code></pre>
         </div>
 
         <div class="source-item">
-            <strong>2. Y Combinator / Truewind - Harness Engineer 招聘要求</strong><br>
+            <strong>2. Anthropic - Effective Context Engineering for AI Agents</strong><br>
+            来源：Anthropic 官方工程博客<br>
+            网址：https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents<br>
+            时间：2025年9月29日<br>
+            核心观点：Context Engineering 是"strategies for curating and maintaining the optimal set of tokens during LLM inference"，是 Prompt Engineering 的自然演进
+        </div>
+
+        <div class="source-item">
+            <strong>3. Shopify CEO / Andrej Karpathy - Context Engineering 定义</strong><br>
+            来源：Tobi Lütke (Shopify CEO) Twitter / Andrej Karpathy<br>
+            时间：2025年6月<br>
+            核心观点：
+            <ul>
+                <li>Tobi Lütke: "Context engineering describes the core skill better: the art of providing all the context for the task to be plausibly solvable by the LLM"</li>
+                <li>Andrej Karpathy: "The hottest new programming language is English... context engineering (not prompt engineering) is the core skill"</li>
+            </ul>
+        </div>
+
+        <div class="source-item">
+            <strong>4. Packmind - What is Context Engineering?</strong><br>
+            来源：Packmind AI 博客<br>
+            网址：https://packmind.com/context-engineering-ai-coding/what-is-context-engineering/<br>
+            时间：2026年1月22日<br>
+            核心观点：Context engineering is "the practice of designing systems that decide what information an AI model sees before generating a response"
+        </div>
+
+        <div class="source-item">
+            <strong>5. Gartner - Context Engineering Definition</strong><br>
+            来源：Gartner Research<br>
+            时间：2025年<br>
+            核心观点：Context engineering is "designing and structuring the relevant data, workflows and environment so AI systems can understand intent, make better decisions and deliver contextual, enterprise-aligned outcomes — without relying on manual prompts"
+        </div>
+
+        <div class="source-item">
+            <strong>6. Intuition Labs - What Is Context Engineering? A Guide for AI & LLMs</strong><br>
+            来源：Intuition Labs<br>
+            网址：https://intuitionlabs.ai/articles/what-is-context-engineering<br>
+            时间：2026年2月27日<br>
+            核心观点：40% 的 AI 项目失败源于上下文输入不佳，Context Engineering 是解决这一问题的关键
+        </div>
+
+        <div class="source-item">
+            <strong>7. Y Combinator / Truewind - Harness Engineer 招聘要求</strong><br>
             来源：Y Combinator 公司 Truewind 官方招聘<br>
             网址：https://www.ycombinator.com/companies/truewind/jobs/xMIZCn0-harness-engineer-ai-agent-systems<br>
             时间：2026年3月30日<br>
@@ -316,31 +397,11 @@ touch .claude/settings.json</code></pre>
         </div>
 
         <div class="source-item">
-            <strong>3. Louis Bouchard - Harness Engineering: The Missing Layer</strong><br>
-            来源：Louis Bouchard AI 技术博客<br>
-            网址：https://www.louisbouchard.ai/harness-engineering/<br>
-            时间：2026年3月24日
-        </div>
-
-        <div class="source-item">
-            <strong>4. Epsilla - Why Harness Engineering Replaced Prompting in 2026</strong><br>
-            来源：Epsilla 技术博客<br>
-            网址：https://www.epsilla.com/blogs/harness-engineering-evolution-prompt-context-autonomous-agents<br>
-            时间：2026年3月25日
-        </div>
-
-        <div class="source-item">
-            <strong>5. Dev.to / WonderLab - From Prompt Engineer to Harness Engineer</strong><br>
-            来源：WonderLab 技术博客<br>
-            网址：https://dev.to/wonderlab/from-prompt-engineer-to-harness-engineer-three-evolutions-in-ai-collaboration-5bgp<br>
-            时间：2026年4月8日
-        </div>
-
-        <div class="source-item">
-            <strong>6. CSDN - Agent Harness Engineer 认证体系构想</strong><br>
-            来源：DAMO开发者矩阵 / 大厂前端小白菜<br>
-            网址：https://damodev.csdn.net/69d7c31154b52172bc6810b2.html<br>
-            时间：2026年4月9日
+            <strong>8. arXiv - A Methodology for Structured Human-AI Collaboration</strong><br>
+            来源：学术论文<br>
+            网址：https://arxiv.org/html/2604.04258v1<br>
+            时间：2026年4月5日<br>
+            核心观点：提出 Context Engineering 的形式化方法论，包含角色分类、冲突解决和序列化工作流程
         </div>
     </article>
 
