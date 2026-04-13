@@ -143,7 +143,7 @@
                 <span>📅 2026-04-13</span>
                 <span>⏱️ 20分钟阅读</span>
                 <span>🔑 12大章节</span>
-                <span>📋 版本 v1.3</span>
+                <span>📋 版本 v1.4</span>
             </div>
         </div>
     </header>
@@ -151,12 +151,13 @@
     <article class="article-content">
         <div class="version-info">
             <strong>版本信息</strong><br>
-            版本号：v1.3 | 发布时间：2026-04-13 15:55 CST | 调研日期：2026-04-13<br>
+            版本号：v1.4 | 发布时间：2026-04-13 16:05 CST | 调研日期：2026-04-13<br>
             更新内容：
             <ul>
                 <li>v1.1: 补充 Context Engineer 详细对比分析，新增 Anthropic/Gartner 权威来源</li>
                 <li>v1.2: 新增"演进本质：从碎片到系统"章节（从 OpenClaw/Hermes 报告迁移）</li>
                 <li>v1.3: 新增"发展时间线"章节（2022-2026关键节点）、"演进驱动力"分析，章节数更新为12章</li>
+                <li>v1.4: 新增"一、核心定义"中缺失的 Context Engineer 定义，补全三代技能完整定义</li>
             </ul>
         </div>
 
@@ -170,6 +171,12 @@
         <p>Prompt Engineering 是 AI 工程化的第一代技能，关注如何构建更好的单次 AI 交互输入。</p>
         <p><strong>典型工作</strong>：编写优化提示词模板、设计少样本示例（few-shot）、调整提示词格式和语气。</p>
         <p><strong>局限性</strong>：适用于单轮、有边界的任务；无法扩展到多步骤工作流；不处理系统级可靠性问题。</p>
+
+        <h3>Context Engineer（上下文工程师）</h3>
+        <p><strong>核心问题</strong>："What context is needed?"（需要什么上下文？）</p>
+        <p>Context Engineering 是 AI 工程化的第二代技能，关注如何策划和维护 LLM 推理期间的最优上下文信息集合。</p>
+        <p><strong>典型工作</strong>：设计 RAG 系统架构、构建向量数据库、实现记忆管理、集成 MCP 工具、动态组装上下文信息。</p>
+        <p><strong>关键洞察</strong>：Context 决定智能上限。长文本能力让 AI 能够处理完整的业务上下文，将海量业务知识直接注入 Context 实现 In-context Learning。</p>
 
         <h3>Harness Engineer（驾驭工程师）</h3>
         <p><strong>核心问题</strong>："How should the whole environment be designed?"（整个环境应该如何设计？）</p>
