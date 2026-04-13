@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw 到 Hermes Agent 演进调研 | OpenClaw Research</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .article-header {
+            background: linear-gradient(135deg, #1d1d1f 0%, #333 100%);
+            color: #fff;
+            padding: 60px 0;
+            margin-bottom: 40px;
+        }
+        .article-meta {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #a1a1a6;
+        }
+        .article-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        .article-content h2 {
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #1d1d1f;
+        }
+        .article-content h3 {
+            font-size: 20px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        .article-content h4 {
+            font-size: 18px;
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: #444;
+        }
+        .article-content p {
+            line-height: 1.8;
+            margin-bottom: 16px;
+            color: #333;
+        }
+        .article-content ul, .article-content ol {
+            margin-bottom: 16px;
+            padding-left: 24px;
+        }
+        .article-content li {
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+        .article-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .article-content th, .article-content td {
+            border: 1px solid #e5e5e5;
+            padding: 12px;
+            text-align: left;
+        }
+        .article-content th {
+            background: #f5f5f7;
+            font-weight: 600;
+        }
+        .article-content blockquote {
+            border-left: 4px solid #0071e3;
+            padding-left: 20px;
+            margin: 20px 0;
+            color: #555;
+            font-style: italic;
+        }
+        .article-content pre {
+            background: #f5f5f7;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        .article-content code {
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #f5f5f7;
+            border-radius: 4px;
+            font-size: 12px;
+            color: #666;
+            margin-right: 8px;
+        }
+        .version-info {
+            background: #f5f5f7;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .source-item {
+            background: #fafafa;
+            padding: 16px;
+            border-radius: 8px;
+            margin: 12px 0;
+            border-left: 3px solid #0071e3;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <a href="../index.html" class="nav-brand">OpenClaw Research</a>
+            <div class="nav-links">
+                <a href="../index.html">首页</a>
+                <a href="../about.html">关于</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="article-header">
+        <div class="container">
+            <div class="tag">技术趋势</div>
+            <div class="tag">AI Agent</div>
+            <div class="tag">OpenClaw</div>
+            <div class="tag">Hermes</div>
+            <h1 style="font-size: 36px; margin-top: 20px;">OpenClaw 到 Hermes Agent 演进调研</h1>
+            <div class="article-meta">
+                <span>📅 2026-04-13</span>
+                <span>⏱️ 15分钟阅读</span>
+                <span>🔑 10大章节</span>
+                <span>📋 版本 v1.0</span>
+            </div>
+        </div>
+    </header>
+
+    <article class="article-content">
+        <div class="version-info">
+            <strong>版本信息</strong><br>
+            版本号：v1.0 | 发布时间：2026-04-13 12:25 CST | 调研日期：2026-04-13
+        </div>
+
+        <h2>执行摘要</h2>
+        <p>本报告深入调研 OpenClaw 与 Hermes Agent 两大 AI 个人助手平台的演进关系。Nous Research 官方将 Hermes 定位为"介于 Claude Code CLI 和 OpenClaw 消息平台代理之间"，明确承认两者共享 DNA。核心差异在于：OpenClaw 是成熟的"AI 助手平台"，强调集成编排；Hermes 是面向未来的"自进化 AI 框架"，具备闭环学习和自动技能创建能力。两者不是替代关系，而是互补演进。</p>
+
+        <h2>一、项目概览</h2>
+        <table>
+            <tr><th>维度</th><th>Hermes Agent</th><th>OpenClaw</th></tr>
+            <tr><td><strong>GitHub</strong></td><td>nousresearch/hermes-agent</td><td>openclaw/openclaw</td></tr>
+            <tr><td><strong>定位</strong></td><td>模块化多代理 AI 框架</td><td>个人 AI 助手（全平台）</td></tr>
+            <tr><td><strong>口号</strong></td><td>Modular Multi-Agent AI Framework</td><td>Your own personal AI assistant. The lobster way 🦞</td></tr>
+            <tr><td><strong>开源协议</strong></td><td>Apache 2.0</td><td>MIT</td></tr>
+            <tr><td><strong>社区热度</strong></td><td>约 22,000 Stars（新项目）</td><td>354k Stars, 71.6k Forks</td></tr>
+            <tr><td><strong>官网</strong></td><td>hermes-agent.nousresearch.com</td><td>openclaw.ai</td></tr>
+            <tr><td><strong>开发团队</strong></td><td>Nous Research</td><td>Peter Steinberger + 社区</td></tr>
+        </table>
+
+        <h2>二、演进关系定位</h2>
+        <blockquote>
+            "Hermes Agent sits between a Claude Code style CLI and an OpenClaw style messaging platform agent"
+            <br>— Nous Research 官方说明
+        </blockquote>
+
+        <p>这一定位明确承认 Hermes 和 OpenClaw 共享 DNA：两者都是个人 AI Agent，都支持 Telegram、Discord、Slack 等消息平台，都支持自托管，都有技能系统和持久化记忆。</p>
+
+        <h3>演进视角：从"持久化"到"自进化"</h3>
+        <table>
+            <tr><th>代际</th><th>代表产品</th><th>核心能力</th><th>关键差异</th></tr>
+            <tr><td><strong>第一代</strong></td><td>OpenClaw</td><td>跨平台消息集成、技能系统、持久记忆</td><td>记忆存储事实，但不从经验创建技能</td></tr>
+            <tr><td><strong>第二代</strong></td><td>Hermes Agent</td><td>闭环学习、自动技能创建/改进、用户建模</td><td>任务执行→学习→改进的循环</td></tr>
+        </table>
+
+        <h3>2.1 演进本质：从碎片到系统</h3>
+
+        <h4>1、Prompt Engineering：碎片化的 NLP 交互</h4>
+        <p><strong>核心特征</strong>：关注单次、碎片化的自然语言指令，适用于简单、有边界的任务场景。</p>
+        <p><strong>局限性</strong>：无法承载复杂业务系统的完整意图；每次交互都是独立上下文，信息容易丢失；难以处理多步骤、长周期的研发任务。</p>
+
+        <h4>2、Context Engineering：复杂系统拆解出的完整意图文档</h4>
+        <p><strong>核心特征</strong>：将复杂业务系统拆解为结构化的 Context 文档，包含背景、目标、设计、验证、安全、风险等完整的意图表达。</p>
+        <p><strong>关键实践</strong>：</p>
+        <ul>
+            <li><strong>Context 决定智能上限</strong>：长文本能力让 AI 能够处理完整的业务上下文</li>
+            <li><strong>In-context Learning</strong>：将海量业务知识直接放入 Context，AI 在语境中学习</li>
+            <li><strong>Context, not Control</strong>：特性负责人从"进度监工"转型为"Context 守护者"</li>
+        </ul>
+
+        <h4>3、Harness Engineering：复杂业务系统的约束与 AI 系统设计约束</h4>
+        <p><strong>核心特征</strong>：关注复杂业务系统的整体约束设计，AI 系统设计的工程化约束（架构边界、依赖规则、质量标准）。</p>
+        
+        <p><strong>关键数据</strong>（OpenAI 实验成果）：</p>
+        <table>
+            <tr><th>指标</th><th>数据</th><th>说明</th></tr>
+            <tr><td>开发周期</td><td>5个月</td><td>从零到完整产品上线</td></tr>
+            <tr><td>团队规模</td><td>3人 → 7人</td><td>后期扩展后效率反而提升</td></tr>
+            <tr><td>代码规模</td><td>~100万行</td><td>涵盖应用逻辑、测试、CI、文档</td></tr>
+            <tr><td>手写代码</td><td>0行</td><td>全部由 Codex Agent 生成</td></tr>
+            <tr><td>效率提升</td><td>~10倍</td><td>相比传统开发模式</td></tr>
+        </table>
+
+        <h2>三、核心架构差异</h2>
+
+        <h3>1. 学习循环（Learning Loop）</h3>
+        <p><strong>OpenClaw</strong>：记忆系统跨会话存储事实，但不会从经验自动创建技能，依赖 MEMORY.md + AGENTS.md 手动管理。</p>
+        <p><strong>Hermes Agent</strong>：情景记忆（ChromaDB 向量存储 + 语义检索），记录每个任务的执行，自动用于改进未来表现，"Closed Learning Loop" 真正自我改进。</p>
+
+        <h3>2. 技术栈对比</h3>
+        <table>
+            <tr><th>维度</th><th>Hermes Agent</th><th>OpenClaw</th></tr>
+            <tr><td><strong>运行时</strong></td><td>Python 3.8+</td><td>Node 22.16+ / Node 24</td></tr>
+            <tr><td><strong>包管理</strong></td><td>pip / poetry</td><td>pnpm</td></tr>
+            <tr><td><strong>记忆系统</strong></td><td>SQLite + FTS5, ChromaDB</td><td>JSONL transcripts + session registry</td></tr>
+            <tr><td><strong>MCP 支持</strong></td><td>✅ 原生 MCP</td><td>网关层 MCP 集成</td></tr>
+            <tr><td><strong>Canvas 可视化</strong></td><td>❌ 无</td><td>✅ Live Canvas + A2UI</td></tr>
+            <tr><td><strong>移动端</strong></td><td>❌ 无原生应用</td><td>✅ macOS/iOS/Android 节点</td></tr>
+        </table>
+
+        <h2>四、核心能力对比</h2>
+        <table>
+            <tr><th>功能</th><th>Hermes Agent</th><th>OpenClaw</th></tr>
+            <tr><td><strong>自动创建/改进技能</strong></td><td>✅ Agent 自动从经验创建技能</td><td>❌ 依赖手动编写 SKILL.md</td></tr>
+            <tr><td><strong>用户建模</strong></td><td>✅ Honcho dialectic 用户建模</td><td>❌ 无</td></tr>
+            <tr><td><strong>RL 训练</strong></td><td>✅ Atropos RL 训练支持</td><td>❌ 无</td></tr>
+            <tr><td><strong>Subagent 深度</strong></td><td>明确限制深度与工具集</td><td>完整子 Agent 编排，支持嵌套</td></tr>
+        </table>
+
+        <h2>五、选型建议</h2>
+
+        <h3>选择 Hermes Agent 当：</h3>
+        <ul>
+            <li>需要<strong>自进化</strong>能力（Agent 自动从经验学习）</li>
+            <li>需要 <strong>serverless 休眠</strong>（Daytona/Modal 零成本空闲）</li>
+            <li>需要 <strong>Signal/Feishu</strong> 原生支持</li>
+            <li>偏好 <strong>Python 开发</strong></li>
+        </ul>
+
+        <h3>选择 OpenClaw 当：</h3>
+        <ul>
+            <li>需要<strong>完整的平台生态</strong>（ClawHub 技能市场）</li>
+            <li>需要<strong>移动端应用</strong>（iOS/Android/macOS 节点）</li>
+            <li>需要<strong>Canvas 可视化</strong>（A2UI）</li>
+            <li>需要<strong>复杂的多 Agent 编排</strong>（嵌套 subagent）</li>
+            <li>偏好 <strong>TypeScript/Node.js</strong></li>
+        </ul>
+
+        <h2>六、结论</h2>
+        <p>两者不是替代关系，而是<strong>互补演进</strong>。OpenClaw 是成熟的"AI 助手平台"，Hermes 是面向未来的"自进化 AI 框架"。最佳实践是使用 OpenClaw 作为编排器（conductor）处理任务路由、认证管理、基础设施集成，使用 Hermes 作为专项专家（specialist）处理需要长期记忆和学习能力的专项任务。</p>
+
+        <h2>权威来源与引用</h2>
+
+        <div class="source-item">
+            <strong>1. Nous Research - Hermes Agent 官方定位</strong><br>
+            来源：Hermes Agent 官方文档 vs OpenClaw 对比页面<br>
+            网址：https://hermes-agent.ai/vs/openclaw<br>
+            时间：2026年4月<br>
+            核心引用："Hermes Agent sits between a Claude Code style CLI and an OpenClaw style messaging platform agent"
+        </div>
+
+        <div class="source-item">
+            <strong>2. CSDN - Agent Harness Engineer 认证体系构想</strong><br>
+            来源：DAMO开发者矩阵 / 大厂前端小白菜<br>
+            网址：https://damodev.csdn.net/69d7c31154b52172bc6810b2.html<br>
+            时间：2026年4月9日
+        </div>
+
+        <div class="source-item">
+            <strong>3. 掘金社区 - Hermes Agent 深度解读与 OpenClaw 对比</strong><br>
+            来源：CloudAI Sphere<br>
+            网址：http://gfox.flashj.cn/hermes-agent-vs-openclaw.html<br>
+            时间：2026年4月8日
+        </div>
+
+        <div class="source-item">
+            <strong>4. Userorbit - Hermes Agent vs OpenClaw 实践对比</strong><br>
+            来源：Userorbit Blog<br>
+            网址：https://userorbit.com/blog/hermes-agent-vs-openclaw<br>
+            时间：2026年4月3日
+        </div>
+
+        <div class="source-item">
+            <strong>5. OpenClaw 官方文档</strong><br>
+            来源：OpenClaw 官方文档<br>
+            网址：https://docs.openclaw.ai
+        </div>
+    </article>
+
+    <footer style="background: #f5f5f7; padding: 40px 0; text-align: center; color: #666;">
+        <div class="container">
+            <p>OpenClaw Research - 热点调研与深度分析</p>
+            <p style="font-size: 12px; margin-top: 10px;">© 2026 OpenClaw Research. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
