@@ -142,7 +142,8 @@
     <article class="article-content">
         <div class="version-info">
             <strong>版本信息</strong><br>
-            版本号：v1.0 | 发布时间：2026-04-13 12:25 CST | 调研日期：2026-04-13
+            版本号：v1.1 | 发布时间：2026-04-13 14:50 CST | 调研日期：2026-04-13<br>
+            更新内容：移除 2.1 节（Prompt/Context/Harness Engineering 演进本质），该内容已移至 Prompt Engineer 报告
         </div>
 
         <h2>执行摘要</h2>
@@ -173,34 +174,6 @@
             <tr><th>代际</th><th>代表产品</th><th>核心能力</th><th>关键差异</th></tr>
             <tr><td><strong>第一代</strong></td><td>OpenClaw</td><td>跨平台消息集成、技能系统、持久记忆</td><td>记忆存储事实，但不从经验创建技能</td></tr>
             <tr><td><strong>第二代</strong></td><td>Hermes Agent</td><td>闭环学习、自动技能创建/改进、用户建模</td><td>任务执行→学习→改进的循环</td></tr>
-        </table>
-
-        <h3>2.1 演进本质：从碎片到系统</h3>
-
-        <h4>1、Prompt Engineering：碎片化的 NLP 交互</h4>
-        <p><strong>核心特征</strong>：关注单次、碎片化的自然语言指令，适用于简单、有边界的任务场景。</p>
-        <p><strong>局限性</strong>：无法承载复杂业务系统的完整意图；每次交互都是独立上下文，信息容易丢失；难以处理多步骤、长周期的研发任务。</p>
-
-        <h4>2、Context Engineering：复杂系统拆解出的完整意图文档</h4>
-        <p><strong>核心特征</strong>：将复杂业务系统拆解为结构化的 Context 文档，包含背景、目标、设计、验证、安全、风险等完整的意图表达。</p>
-        <p><strong>关键实践</strong>：</p>
-        <ul>
-            <li><strong>Context 决定智能上限</strong>：长文本能力让 AI 能够处理完整的业务上下文</li>
-            <li><strong>In-context Learning</strong>：将海量业务知识直接放入 Context，AI 在语境中学习</li>
-            <li><strong>Context, not Control</strong>：特性负责人从"进度监工"转型为"Context 守护者"</li>
-        </ul>
-
-        <h4>3、Harness Engineering：复杂业务系统的约束与 AI 系统设计约束</h4>
-        <p><strong>核心特征</strong>：关注复杂业务系统的整体约束设计，AI 系统设计的工程化约束（架构边界、依赖规则、质量标准）。</p>
-        
-        <p><strong>关键数据</strong>（OpenAI 实验成果）：</p>
-        <table>
-            <tr><th>指标</th><th>数据</th><th>说明</th></tr>
-            <tr><td>开发周期</td><td>5个月</td><td>从零到完整产品上线</td></tr>
-            <tr><td>团队规模</td><td>3人 → 7人</td><td>后期扩展后效率反而提升</td></tr>
-            <tr><td>代码规模</td><td>~100万行</td><td>涵盖应用逻辑、测试、CI、文档</td></tr>
-            <tr><td>手写代码</td><td>0行</td><td>全部由 Codex Agent 生成</td></tr>
-            <tr><td>效率提升</td><td>~10倍</td><td>相比传统开发模式</td></tr>
         </table>
 
         <h2>三、核心架构差异</h2>
