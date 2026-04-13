@@ -141,9 +141,9 @@
             <h1 style="font-size: 36px; margin-top: 20px;">Prompt Engineer vs Context Engineer vs Harness Engineer 调研报告</h1>
             <div class="article-meta">
                 <span>📅 2026-04-13</span>
-                <span>⏱️ 18分钟阅读</span>
-                <span>🔑 10大章节</span>
-                <span>📋 版本 v1.2</span>
+                <span>⏱️ 20分钟阅读</span>
+                <span>🔑 12大章节</span>
+                <span>📋 版本 v1.3</span>
             </div>
         </div>
     </header>
@@ -151,11 +151,12 @@
     <article class="article-content">
         <div class="version-info">
             <strong>版本信息</strong><br>
-            版本号：v1.2 | 发布时间：2026-04-13 14:50 CST | 调研日期：2026-04-13<br>
+            版本号：v1.3 | 发布时间：2026-04-13 15:55 CST | 调研日期：2026-04-13<br>
             更新内容：
             <ul>
                 <li>v1.1: 补充 Context Engineer 详细对比分析，新增 Anthropic/Gartner 权威来源</li>
                 <li>v1.2: 新增"演进本质：从碎片到系统"章节（从 OpenClaw/Hermes 报告迁移）</li>
+                <li>v1.3: 新增"发展时间线"章节（2022-2026关键节点）、"演进驱动力"分析，章节数更新为12章</li>
             </ul>
         </div>
 
@@ -231,6 +232,51 @@
             <tr><td>代码规模</td><td>~100万行</td><td>涵盖应用逻辑、测试、CI、文档</td></tr>
             <tr><td>手写代码</td><td>0行</td><td>全部由 Codex Agent 生成</td></tr>
             <tr><td>效率提升</td><td>~10倍</td><td>相比传统开发模式</td></tr>
+        </table>
+
+        <h3>2.3 发展时间线</h3㻢.3 发展时间线
+
+        <div class="timeline-box" style="background: #f5f5f7; padding: 20px; border-radius: 8px; margin: 20px 0;">
+            <p><strong>2022年11月</strong> — <span style="color: #0071e3;">ChatGPT 发布，Prompt Engineering 诞生</span><br>
+            OpenAI 发布 ChatGPT，用户发现通过精心设计提示词可以显著提升 AI 输出质量，"Prompt Engineering"概念开始流行。</p>
+
+            <p><strong>2023年</strong> — <span style="color: #34c759;">Prompt Engineering 黄金时代</span><br>
+            - 提示词工程成为热门技能，大量提示词技巧和框架涌现（Chain-of-Thought、Few-shot、Role Prompting）<br>
+            - 首批 "Prompt Engineer" 职位出现，薪资 $80K-$150K<br>
+            - 局限性暴露：单轮交互无法处理复杂任务</p>
+
+            <p><strong>2024年初</strong> — <span style="color: #ff9500;">RAG 技术普及，Context 意识觉醒</span><br>
+            检索增强生成（RAG）成为主流方案，业界开始关注"上下文管理"的重要性，Context Engineering 概念萌芽。</p>
+
+            <p><strong>2024年6月</strong> — <span style="color: #5856d6;">Andrej Karpathy 提出 Context Engineering</span><br>
+            前 Tesla AI 总监 Andrej Karpathy 在社交媒体表示："The hottest new programming language is English... context engineering (not prompt engineering) is the core skill"，引发行业关注。</p>
+
+            <p><strong>2024年11月</strong> — <span style="color: #af52de;">Anthropic 官方定义 Context Engineering</span><br>
+            Anthropic 发布官方文档，将 Context Engineering 定义为"strategies for curating and maintaining the optimal set of tokens during LLM inference"。</p>
+
+            <p><strong>2025年初</strong> — <span style="color: #0071e3;">Multi-Agent 系统兴起</span><br>
+            LangGraph、CrewAI 等多 Agent 编排框架发布，单一 Prompt 已无法满足复杂工作流需求。</p>
+
+            <p><strong>2025年3月</strong> — <span style="color: #ff2d55;">Harness Engineering 概念提出</span><br>
+            MindStudio 博客文章《What Is Harness Engineering?》首次系统提出 Harness Engineering 概念，定义为第三代 AI 工程技能。</p>
+
+            <p><strong>2025年6月</strong> — <span style="color: #34c759;">行业领袖集体背书</span><br>
+            - Shopify CEO Tobi Lütke: "Context engineering describes the core skill better"<br>
+            - Gartner 将 Context Engineering 纳入企业 AI 实施指南</p>
+
+            <p><strong>2026年3月</strong> — <span style="color: #5856d6;">Harness Engineer 职位正式出现</span><br>
+            Y Combinator 公司 Truewind 发布 Harness Engineer 招聘，薪资 $180K-$200K，标志第三代技能正式职业化。</p>
+
+            <p><strong>2026年4月</strong> — <span style="color: #af52de;">概念体系成熟</span><br>
+            三代 AI 工程技能演进框架（Prompt → Context → Harness）成为行业共识，教育体系开始跟进。</p>
+        </div>
+
+        <h3>2.4 演进驱动力</h3>
+        <table>
+            <tr><th>阶段</th><th>驱动力</th><th>技术突破</th></tr>
+            <tr><td>Prompt Engineering</td><td>ChatGPT 交互优化需求</td><td>InstructGPT、RLHF</td></tr>
+            <tr><td>Context Engineering</td><td>长上下文窗口、RAG 普及</td><td>Claude 100K/200K、向量数据库</td></tr>
+            <tr><td>Harness Engineering</td><td>Multi-Agent 系统、生产级 AI 需求</td><td>LangGraph、AutoGen、MCP</td></tr>
         </table>
 
         <h2>三、工作内容对比</h2>
