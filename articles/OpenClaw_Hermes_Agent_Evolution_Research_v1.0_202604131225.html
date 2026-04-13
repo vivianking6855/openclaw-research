@@ -132,9 +132,9 @@
             <h1 style="font-size: 36px; margin-top: 20px;">OpenClaw 到 Hermes Agent 演进调研</h1>
             <div class="article-meta">
                 <span>📅 2026-04-13</span>
-                <span>⏱️ 20分钟阅读</span>
-                <span>🔑 8大章节</span>
-                <span>📋 版本 v1.2</span>
+                <span>⏱️ 25分钟阅读</span>
+                <span>🔑 9大章节</span>
+                <span>📋 版本 v1.3</span>
             </div>
         </div>
     </header>
@@ -142,12 +142,12 @@
     <article class="article-content">
         <div class="version-info">
             <strong>版本信息</strong><br>
-            版本号：v1.2 | 发布时间：2026-04-13 15:00 CST | 调研日期：2026-04-13<br>
+            版本号：v1.3 | 发布时间：2026-04-13 15:30 CST | 调研日期：2026-04-13<br>
             更新内容：<br>
             <ul>
                 <li>v1.1: 移除 2.1 节（Prompt/Context/Harness Engineering 演进本质），该内容已移至 Prompt Engineer 报告</li>
-                <li>v1.2: 新增"基本概念定义"章节（AI Agent、个人 AI 助手、关键术语）</li>
-                <li>v1.2: 新增"发展时间线"章节（OpenClaw 和 Hermes Agent 完整发展历程对比）</li>
+                <li>v1.2: 新增"基本概念定义"章节、"发展时间线"章节</li>
+                <li>v1.3: 新增"Claude Code 对比分析"完整章节（3.1-3.6），章节重新编号（共9章）</li>
             </ul>
         </div>
 
@@ -255,7 +255,104 @@
             <tr><td>2026年4月8日</td><td>335K+ stars</td><td>v0.8.0 发布，27K stars</td></tr>
         </table>
 
-        <h2>三、项目概览</h2>
+        <h2>三、Claude Code 对比分析</h2>
+
+        <h3>3.1 Claude Code 定位</h3>
+        <p><strong>Claude Code</strong> 是 Anthropic 官方推出的<strong>终端级编程 Agent</strong>，于 2025 年初发布，定位为"专业软件开发助手"。与 OpenClaw/Hermes 的通用个人助手定位不同，Claude Code 专注于<strong>代码开发场景</strong>：</p>
+        
+        <blockquote>
+            "Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools."
+            <br>— Anthropic 官方文档
+        </blockquote>
+
+        <h3>3.2 核心能力对比</h3>
+        <table>
+            <tr><th>维度</th><th>Claude Code</th><th>OpenClaw</th><th>Hermes Agent</th></tr>
+            <tr><td><strong>定位</strong></td><td>专业编程 Agent</td><td>通用个人助手</td><td>模块化多代理框架</td></tr>
+            <tr><td><strong>核心场景</strong></td><td>代码开发、重构、测试</td><td>生活自动化、消息处理</td><td>自进化 AI 系统</td></tr>
+            <tr><td><strong>上下文窗口</strong></td><td>200K tokens</td><td>依赖模型</td><td>依赖模型</td></tr>
+            <tr><td><strong>代码库理解</strong></td><td>✅ 深度架构映射</td><td>❌ 基础文件操作</td><td>❌ 非设计重点</td></tr>
+            <tr><td><strong>IDE 集成</strong></td><td>✅ VS Code/JetBrains/Xcode</td><td>❌ 无</td><td>❌ 无</td></tr>
+            <tr><td><strong>多文件编辑</strong></td><td>✅ 跨文件重构</td><td>⚠️ 基础支持</td><td>⚠️ 基础支持</td></tr>
+            <tr><td><strong>diff 视图</strong></td><td>✅ 原生支持</td><td>❌ 无</td><td>❌ 无</td></tr>
+            <tr><td><strong>消息平台</strong></td><td>⚠️ 需通过 Channels 扩展</td><td>✅ 15+ 平台原生支持</td><td>✅ 15+ 平台原生支持</td></tr>
+            <tr><td><strong>持久运行</strong></td><td>⚠️ Remote Control (2026.04)</td><td>✅ 后台常驻</td><td>✅ 后台常驻</td></tr>
+            <tr><td><strong>自托管</strong></td><td>❌ Anthropic 托管</td><td>✅ 完全本地</td><td>✅ 完全本地</td></tr>
+        </table>
+
+        <h3>3.3 技术架构差异</h3>
+        <p><strong>Claude Code 架构特点</strong>：</p>
+        <ul>
+            <li><strong>云端模型 + 本地执行</strong>：LLM 推理在 Anthropic 云端进行，文件编辑、命令执行在本地终端</li>
+            <li><strong>深度代码理解</strong>：自动映射整个代码库架构，追踪跨文件函数调用关系</li>
+            <li><strong>安全沙箱</strong>：Anthropic 管理的沙箱环境，细粒度权限控制</li>
+        </ul>
+
+        <p><strong>与 OpenClaw/Hermes 的核心差异</strong>：</p>
+        <table>
+            <tr><th>特性</th><th>Claude Code</th><th>OpenClaw/Hermes</th></tr>
+            <tr><td><strong>数据控制</strong></td><td>Anthropic 处理查询</td><td>完全本地，用户主权</td></tr>
+            <tr><td><strong>模型选择</strong></td><td>仅 Claude (Sonnet/Opus)</td><td>多模型（Claude/GPT/Gemini/本地）</td></tr>
+            <tr><td><strong>技能扩展</strong></td><td>Claude Skills (YAML/Markdown)</td><td>ClawHub/Hermes Skills (Python/Node)</td></tr>
+            <tr><td><strong>设置时间</strong></td><td>~30 秒</td><td>30-60 分钟</td></tr>
+            <tr><td><strong>成本模式</strong></td><td>$20-200/月订阅制</td><td>免费 + API 调用费</td></tr>
+        </table>
+
+        <h3>3.4 定价对比</h3>
+        <p><strong>Claude Code 定价</strong>（2026年4月）：</p>
+        <table>
+            <tr><th>套餐</th><th>价格</th><th>适用场景</th></tr>
+            <tr><td><strong>Pro</strong></td><td>$20/月</td><td>个人开发者，中轻度使用</td></tr>
+            <tr><td><strong>Max 5x</strong></td><td>$100/月</td><td>高频使用，长时间会话</td></tr>
+            <tr><td><strong>Max 20x</strong></td><td>$200/月</td><td>全天 Agentic 工作，多并发</td></tr>
+            <tr><td><strong>Team Premium</strong></td><td>$100/座/月</td><td>开发团队</td></tr>
+            <tr><td><strong>Enterprise</strong></td><td>定制</td><td>大型组织，500K 上下文</td></tr>
+        </table>
+
+        <p><strong>重要更新</strong>（2026年4月4日）：Anthropic 已禁止 Claude Pro/Max 订阅的 OAuth Token 用于第三方工具（包括 OpenClaw），使用 Claude 模型需按 API 费率计费。</p>
+
+        <h3>3.5 使用场景对比</h3>
+        <p><strong>选择 Claude Code 当</strong>：</p>
+        <ul>
+            <li>需要<strong>深度代码库理解</strong>和跨文件重构</li>
+            <li>需要<strong>IDE 原生集成</strong>（VS Code/JetBrains/Xcode）</li>
+            <li>需要<strong>生产级稳定性</strong>和托管安全</li>
+            <li>团队已有 Anthropic 订阅</li>
+            <li>优先<strong>快速启动</strong>（30秒设置）</li>
+        </ul>
+
+        <p><strong>选择 OpenClaw 当</strong>：</p>
+        <ul>
+            <li>需要<strong>通用生活自动化</strong>（日历、邮件、智能家居）</li>
+            <li>需要<strong>消息平台原生集成</strong>（WhatsApp、Telegram、Discord）</li>
+            <li>需要<strong>完全数据主权</strong>（本地运行，无云上传）</li>
+            <li>需要<strong>多模型选择</strong>（Claude/GPT/Gemini/本地）</li>
+        </ul>
+
+        <p><strong>选择 Hermes Agent 当</strong>：</p>
+        <ul>
+            <li>需要<strong>自进化能力</strong>（自动从经验学习改进）</li>
+            <li>需要<strong>用户建模</strong>（个性化适应）</li>
+            <li>需要<strong>RL 训练支持</strong></li>
+            <li>偏好 <strong>Python 开发</strong></li>
+        </ul>
+
+        <h3>3.6 官方定位关系</h3>
+        <p>Nous Research 对 Hermes Agent 的官方定位明确提及 Claude Code：</p>
+        <blockquote>
+            "Hermes Agent sits between a <strong>Claude Code style CLI</strong> and an <strong>OpenClaw style messaging platform agent</strong>"
+            <br>— Nous Research
+        </blockquote>
+
+        <p>这一定位揭示了三者的层次关系：</p>
+        <table>
+            <tr><th>产品</th><th>定位</th><th>核心特点</th></tr>
+            <tr><td><strong>Claude Code</strong></td><td>专业编程 CLI</td><td>代码专家、IDE集成</td></tr>
+            <tr><td><strong>Hermes Agent</strong></td><td>中间地带</td><td>消息+自学习、可进化</td></tr>
+            <tr><td><strong>OpenClaw</strong></td><td>消息平台代理</td><td>通用生活助手、多平台</td></tr>
+        </table>
+
+        <h2>四、项目概览</h2>
         <table>
             <tr><th>维度</th><th>Hermes Agent</th><th>OpenClaw</th></tr>
             <tr><td><strong>GitHub</strong></td><td>nousresearch/hermes-agent</td><td>openclaw/openclaw</td></tr>
@@ -267,29 +364,29 @@
             <tr><td><strong>开发团队</strong></td><td>Nous Research</td><td>Peter Steinberger + 社区</td></tr>
         </table>
 
-        <h2>四、演进关系定位</h2>
+        <h2>五、演进关系定位</h2>
         <blockquote>
             "Hermes Agent sits between a Claude Code style CLI and an OpenClaw style messaging platform agent"
             <br>— Nous Research 官方说明
         </blockquote>
 
-        <h3>4.1 官方定位对比</h3>
+        <h3>5.1 官方定位对比</h3>
         <p>这一定位明确承认 Hermes 和 OpenClaw 共享 DNA：两者都是个人 AI Agent，都支持 Telegram、Discord、Slack 等消息平台，都支持自托管，都有技能系统和持久化记忆。</p>
 
-        <h3>4.2 演进视角：从"持久化"到"自进化"</h3>
+        <h3>5.2 演进视角：从"持久化"到"自进化"</h3>
         <table>
             <tr><th>代际</th><th>代表产品</th><th>核心能力</th><th>关键差异</th></tr>
             <tr><td><strong>第一代</strong></td><td>OpenClaw</td><td>跨平台消息集成、技能系统、持久记忆</td><td>记忆存储事实，但不从经验创建技能</td></tr>
             <tr><td><strong>第二代</strong></td><td>Hermes Agent</td><td>闭环学习、自动技能创建/改进、用户建模</td><td>任务执行→学习→改进的循环</td></tr>
         </table>
 
-        <h2>五、核心架构差异</h2>
+        <h2>六、核心架构差异</h2>
 
-        <h3>5.1 学习循环（Learning Loop）</h3>
+        <h3>6.1 学习循环（Learning Loop）</h3>
         <p><strong>OpenClaw</strong>：记忆系统跨会话存储事实，但不会从经验自动创建技能，依赖 MEMORY.md + AGENTS.md 手动管理。</p>
         <p><strong>Hermes Agent</strong>：情景记忆（ChromaDB 向量存储 + 语义检索），记录每个任务的执行，自动用于改进未来表现，"Closed Learning Loop" 真正自我改进。</p>
 
-        <h3>5.2 技术栈对比</h3>
+        <h3>6.2 技术栈对比</h3>
         <table>
             <tr><th>维度</th><th>Hermes Agent</th><th>OpenClaw</th></tr>
             <tr><td><strong>运行时</strong></td><td>Python 3.8+</td><td>Node 22.16+ / Node 24</td></tr>
@@ -300,7 +397,7 @@
             <tr><td><strong>移动端</strong></td><td>❌ 无原生应用</td><td>✅ macOS/iOS/Android 节点</td></tr>
         </table>
 
-        <h2>六、核心能力对比</h2>
+        <h2>七、核心能力对比</h2>
         <table>
             <tr><th>功能</th><th>Hermes Agent</th><th>OpenClaw</th></tr>
             <tr><td><strong>自动创建/改进技能</strong></td><td>✅ Agent 自动从经验创建技能</td><td>❌ 依赖手动编写 SKILL.md</td></tr>
@@ -309,9 +406,9 @@
             <tr><td><strong>Subagent 深度</strong></td><td>明确限制深度与工具集</td><td>完整子 Agent 编排，支持嵌套</td></tr>
         </table>
 
-        <h2>七、选型建议</h2>
+        <h2>八、选型建议</h2>
 
-        <h3>7.1 选择 Hermes Agent 当：</h3>
+        <h3>8.1 选择 Hermes Agent 当：</h3>
         <ul>
             <li>需要<strong>自进化</strong>能力（Agent 自动从经验学习）</li>
             <li>需要 <strong>serverless 休眠</strong>（Daytona/Modal 零成本空闲）</li>
@@ -319,7 +416,7 @@
             <li>偏好 <strong>Python 开发</strong></li>
         </ul>
 
-        <h3>7.2 选择 OpenClaw 当：</h3>
+        <h3>8.2 选择 OpenClaw 当：</h3>
         <ul>
             <li>需要<strong>完整的平台生态</strong>（ClawHub 技能市场）</li>
             <li>需要<strong>移动端应用</strong>（iOS/Android/macOS 节点）</li>
@@ -328,7 +425,7 @@
             <li>偏好 <strong>TypeScript/Node.js</strong></li>
         </ul>
 
-        <h2>八、结论</h2>
+        <h2>九、结论</h2>
         <p>两者不是替代关系，而是<strong>互补演进</strong>。OpenClaw 是成熟的"AI 助手平台"，Hermes 是面向未来的"自进化 AI 框架"。最佳实践是使用 OpenClaw 作为编排器（conductor）处理任务路由、认证管理、基础设施集成，使用 Hermes 作为专项专家（specialist）处理需要长期记忆和学习能力的专项任务。</p>
 
         <h2>权威来源与引用</h2>
@@ -366,6 +463,38 @@
             <strong>5. OpenClaw 官方文档</strong><br>
             来源：OpenClaw 官方文档<br>
             网址：https://docs.openclaw.ai
+        </div>
+
+        <div class="source-item">
+            <strong>6. Anthropic - Claude Code 官方文档</strong><br>
+            来源：Anthropic 官方<br>
+            网址：https://code.claude.com/docs/en/overview<br>
+            时间：2025-2026<br>
+            核心引用："Claude Code is an agentic coding tool that reads your codebase, edits files, runs commands, and integrates with your development tools"
+        </div>
+
+        <div class="source-item">
+            <strong>7. ClaudeFast - OpenClaw vs Claude Code 对比</strong><br>
+            来源：ClaudeFast Blog<br>
+            网址：https://claudefa.st/blog/tools/extensions/openclaw-vs-claude-code<br>
+            时间：2026年4月11日<br>
+            核心观点：Claude Code 是专业编程工具，OpenClaw 是通用生活助手，两者定位完全不同
+        </div>
+
+        <div class="source-item">
+            <strong>8. Verdent AI - Claw Code: Claude vs OpenClaw</strong><br>
+            来源：Verdent AI<br>
+            网址：https://www.verdent.ai/guides/claw-code-claude-code-vs-openclaw<br>
+            时间：2026年4月5日<br>
+            关键更新：Anthropic 2026年4月4日起禁止 Claude Pro/Max 订阅用于第三方工具
+        </div>
+
+        <div class="source-item">
+            <strong>9. GoCodeLab - Claude Code Remote Agents Launch</strong><br>
+            来源：GoCodeLab<br>
+            网址：https://gocodelab.com/en/blog/en-claude-code-remote-agents-launch-2026<br>
+            时间：2026年4月9日<br>
+            核心观点：Remote Agents 允许在云端运行 AI 编码会话
         </div>
     </article>
 
