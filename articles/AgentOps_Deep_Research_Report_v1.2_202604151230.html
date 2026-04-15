@@ -407,12 +407,92 @@
             </p>
         </section>
 
+            <h3 style="margin: 40px 0 20px;">4.3 人机协作模式深度解析</h3>
+            
+            <!-- 人在环中 (HITL) -->
+            <div class="concept-card" style="border-left-color: #ff9500;">
+                <h3 style="color: #ff9500;">👤 人在环中 (Human-in-the-Loop，简称 HITL)</h3>
+                <div class="meta" style="background: #fff7f0;">
+                    <span class="tag tag-orange">适用阶段</span> <strong>AI DevOps 阶段</strong><br>
+                    <span class="tag tag-blue">人机关系</span> <strong>人是决策者，AI是高级副驾</strong>
+                </div>
+                <p><strong>字面理解：</strong>人在整个执行的"闭环"<strong>里面</strong>，是流程运转不可或缺的一环。系统运行到某一步，必须停下来等人类输入、干预或审批，否则流程无法继续。</p>
+                <p><strong>角色定位：</strong>人是<strong>"决策者"</strong>和<strong>"最后把关人"</strong>，AI 是"高级副驾"。</p>
+                <div class="highlight-box" style="border-left-color: #ff9500; background: linear-gradient(135deg, #ff950010 0%, #ffcc0010 100%);">
+                    <p><strong>通俗类比：L2/L3 级辅助驾驶（高铁辅助系统）</strong></p>
+                    <p style="margin-top: 10px;">汽车有自动跟车、防碰撞预警，但<strong>人的手不能离开方向盘</strong>。雷达（AI）发现了前方有障碍物，系统报警提示，最终由人来踩刹车。</p>
+                </div>
+                <p><strong>在当前的 AI DevOps 阶段：</strong>AI 帮你生成了一段代码，或者诊断了 Bug 的原因。但是，这段代码<strong>必须由人类程序员审核（Review）、点击合并（Merge）</strong>，才能真正部署上线。如果没有人的确认，系统就停在这一步。</p>
+            </div>
+
+            <!-- 人在环上 (HOTL) -->
+            <div class="concept-card" style="border-left-color: #34c759;">
+                <h3 style="color: #34c759;">👁️ 人在环上 (Human-on-the-Loop，简称 HOTL)</h3>
+                <div class="meta" style="background: #f0fff4;">
+                    <span class="tag tag-green">适用阶段</span> <strong>AgentOps 阶段</strong><br>
+                    <span class="tag tag-blue">人机关系</span> <strong>人是监督者，AI是独立执行者</strong>
+                </div>
+                <p><strong>字面理解：</strong>人在整个执行的"闭环"<strong>上面/外围</strong>。机器形成了一个自动运转的闭环，人在上面俯视监控。不需要人的每步干预，机器就能自主跑完全程；人只在发生严重异常时才伸手干预。</p>
+                <p><strong>角色定位：</strong>人变成了<strong>"监督者"</strong>、<strong>"规则制定者"</strong>（写 Context 和设护栏），AI 是"独立执行者"。</p>
+                <div class="highlight-box" style="border-left-color: #34c759; background: linear-gradient(135deg, #34c75910 0%, #30d15810 100%);">
+                    <p><strong>通俗类比：L4/L5 级全自动驾驶（或者空中交通管制员）</strong></p>
+                    <p style="margin-top: 10px;">车主只需要在屏幕上输入目的地（Context 意图），汽车自己规划路线、自己打方向盘、自己踩刹车。<strong>人的手离开了方向盘</strong>，只在监控屏幕，除非车子要开出悬崖了，人再去紧急接管。</p>
+                </div>
+                <p><strong>在未来的 AgentOps 阶段：</strong>人只负责输入一段高密度的需求文档（Context）。AI Agent 会自主分析需求、自主写代码、自主调起测试 Agent 跑测试、甚至自主修复报错，直到所有验收标准达标。整个过程是自动化的内循环，<strong>人只看最后的度量仪表盘，或者系统触发安全警报时才介入</strong>。</p>
+            </div>
+
+            <!-- 对比总结 -->
+            <h3 style="margin: 30px 0 20px;">HITL vs HOTL 对比表</h3>
+            <table>
+                <tr>
+                    <th>维度</th>
+                    <th>人在环中 (HITL)</th>
+                    <th>人在环上 (HOTL)</th>
+                </tr>
+                <tr>
+                    <td><strong>人在流程中的位置</strong></td>
+                    <td>在闭环<strong>内部</strong>，流程的必经节点</td>
+                    <td>在闭环<strong>上方/外围</strong>，监控视角</td>
+                </tr>
+                <tr>
+                    <td><strong>干预频率</strong></td>
+                    <td>每步/关键环节都需要人工确认</td>
+                    <td>极少干预，只在严重异常时介入</td>
+                </tr>
+                <tr>
+                    <td><strong>人的角色</strong></td>
+                    <td>决策者、执行者、把关人</td>
+                    <td>监督者、规则制定者、最终兜底</td>
+                </tr>
+                <tr>
+                    <td><strong>AI的角色</strong></td>
+                    <td>高级副驾、建议者</td>
+                    <td>独立执行者、自主决策者</td>
+                </tr>
+                <tr>
+                    <td><strong>类比场景</strong></td>
+                    <td>L2/L3 辅助驾驶（手不离方向盘）</td>
+                    <td>L4/L5 自动驾驶（手离方向盘，只看屏幕）</td>
+                </tr>
+                <tr>
+                    <td><strong>适用阶段</strong></td>
+                    <td>AI DevOps（当前主流）</td>
+                    <td>AgentOps（未来趋势）</td>
+                </tr>
+                <tr>
+                    <td><strong>典型场景</strong></td>
+                    <td>代码审核、合并确认、发布审批</td>
+                    <td>需求输入、异常告警、策略调整</td>
+                </tr>
+            </table>
+        </section>
+
         <!-- 关键数据 -->
         <section class="section">
             <div class="section-header">
                 <span class="section-icon">📊</span>
                 <h2 class="section-title">五、关键数据对比</h2>
-            </div>
+            </section>
             <table>
                 <tr>
                     <th>指标</th>
@@ -474,7 +554,7 @@
     </main>
 
     <footer class="footer">
-        <p>OpenClaw Research | AgentOps 深度调研报告 v1.1</p>
+        <p>OpenClaw Research | AgentOps 深度调研报告 v1.2</p>
         <p style="margin-top: 10px; opacity: 0.6;">数据来源：TechTarget、Gartner、AgentOps.ai、中科院论文、行业研究报告</p>
     </footer>
 </body>
