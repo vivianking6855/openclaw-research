@@ -1,7 +1,6 @@
 /* OpenClaw Research - 文章页专用样式 */
 
 :root {
-    --sidebar-width: 280px;
     --content-max-width: 800px;
 }
 
@@ -10,129 +9,8 @@
     min-height: 100vh;
 }
 
-/* ===== 左侧导航栏 ===== */
-.sidebar {
-    background: var(--primary);
-    color: var(--nav-text);
-    position: fixed;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: var(--sidebar-width);
-    overflow-y: auto;
-    padding: 24px;
-    z-index: 100;
-}
-
-.sidebar-header {
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-}
-
-.back-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.8);
-    text-decoration: none;
-    font-size: 14px;
-    margin-bottom: 16px;
-    transition: color 0.2s;
-}
-
-.back-link:hover {
-    color: white;
-}
-
-.sidebar-logo {
-    font-size: 18px;
-    font-weight: 700;
-    color: white;
-}
-
-/* 目录导航 */
-.toc {
-    margin-bottom: 32px;
-}
-
-.toc-title {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 16px;
-}
-
-.toc-list {
-    list-style: none;
-}
-
-.toc-list li {
-    margin-bottom: 8px;
-}
-
-.toc-list a {
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-size: 14px;
-    display: block;
-    padding: 6px 0;
-    border-left: 2px solid transparent;
-    padding-left: 12px;
-    margin-left: -12px;
-    transition: all 0.2s;
-}
-
-.toc-list a:hover,
-.toc-list a.active {
-    color: white;
-    border-left-color: var(--accent);
-}
-
-.toc-list .toc-h2 {
-    font-weight: 500;
-}
-
-.toc-list .toc-h3 {
-    padding-left: 24px;
-    font-size: 13px;
-}
-
-/* 底部快捷导航 */
-.sidebar-section {
-    padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.sidebar-section-title {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 12px;
-}
-
-.sidebar-link {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: rgba(255,255,255,0.7);
-    text-decoration: none;
-    font-size: 14px;
-    padding: 8px 0;
-    transition: color 0.2s;
-}
-
-.sidebar-link:hover {
-    color: white;
-}
-
 /* ===== 主内容区 ===== */
 .article-main {
-    margin-left: var(--sidebar-width);
     background: var(--bg);
     min-height: 100vh;
 }
